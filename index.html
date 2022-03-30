@@ -1,0 +1,858 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="prism.css" />
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="flex-row">
+
+                <div class="flex-large">
+
+                    <h1>Curso de Python 3</h1>
+
+                    <p>iniciando Python . . . de forma <b>incorrecta</b> (Python 2)</p>
+
+                    <pre><code class="language-bash">
+$ python
+Python 2.7.6 (default, Mar 22 2014, 22:59:38)
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+                    </code></pre>
+
+                    <p>Iniciando Python . . . de forma <b>CORRECTA!</b> (Python 2)</p>
+
+                    <pre><code class="language-bash">
+$ python3
+Python 3.5.0 (default, Sep 17 2015, 13:05:18)
+[GCC 4.8.4] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+                    </code></pre>
+
+                    <p>Esta es la consola "interactiva" de python, aquí podrás hacer pequeñas pruebas . . . Intentemos la más básica:</p>
+
+                    <pre><code class="language-python">
+print("Hola mundo !")
+                    </code></pre>
+
+                    Para ejecutar programas de python solo debemos escribir . . .
+
+                    <pre><code class="language-bash">
+python3 hola_mundo.py
+Hola Mundo !
+                    </code></pre>
+
+                    <h2>Variables</h2>
+
+                    Se decalran usando el símbolo de igual que "=" el tipo depende del valor asignado
+
+                    <pre><code class="language-python">
+# hola_mundo.py
+mensaje = "Hola mundo !"
+print(mensaje)
+                    </code></pre>
+
+                    <ul>
+                        <li>
+                            Sólo pueden contener letras, números, underscores, no pueden iniciar con un número
+                        </li>
+                        <li>
+                            Los espacios no son permitidos
+                        </li>
+                        <li>
+                            Evitar usar palabras clave del lenguaje
+                        </li>
+                    </ul>
+
+                    Y claro está, cuidado con equivocarse en los nombres de las variables
+                    <pre><code class="language-bash">
+Traceback (most recent call last):
+File "hola_mundo.py", line 2, in &ltmodule&gt #archivo con el problema
+print(mesage) #linea en cuestión
+NameError: name 'mesage' is not defined #error
+                    </code></pre>
+
+                    <h2>Strings</h2>
+
+                    Los strings se crean con comillas dobles o simples
+                    <pre><code class="language-python">
+"This is a string."
+'This is also a string.'
+                    </code></pre>
+
+                    Esto permite algo de "flexibilidad", por ejemplo, esto imprime . . .
+                    <pre><code class="language-python">
+print('I told my friend, "Python is my favorite language!"')
+print("The language 'Python' is named after Monty Python, not the snake.")
+print("One of Python's strengths is its diverse and supportive community.")
+                    </code></pre>
+
+                    Esto:
+                    <pre><code class="language-bash">
+I told my friend, "Python is my favorite language!"
+The language 'Python' is named after Monty Python, not the snake.
+One of Python's strengths is its diverse and supportive community.                   
+                    </code></pre>
+
+                    <h3>Cambiando el casing de un string usando métodos</h3>
+
+                    Veamos rapidamente como invocar metodos de un objeto, un string es en si un objeto y ya posee metodos. Uno de estos es
+                    "title" que nos permitirá poner en mayusculas la primera letra de cada palabra:
+
+                    <pre><code class="language-python">
+name = "ada lovelace"
+print(name.title())
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+Ada Lovelace
+                    </code></pre>
+
+                    También hay otros métodos para colocar todas las letras en mayúsculas o en minúsculas:
+
+                    <pre><code class="language-python">
+name = "Ada Lovelace"
+print(name.upper())
+print(name.lower())
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+ADA LOVELACE
+ada lovelace
+                    </code></pre>
+
+                    <h3>Combinando o Concatenando Strings</h3>
+
+                    Concatenamos usando "+"
+
+                    <pre><code class="language-python">
+first_name = "ada"
+last_name = "lovelace"
+u full_name = first_name + " " + last_name
+print(full_name)
+print("Hello, " + full_name.title() + "!")
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+ada lovelace
+Hello, Ada Lovelace!
+                    </code></pre>
+
+                    <h3>Añadiendo espacios en blanco con tabulaciones o saltos de lineas</h3>
+
+                    Para tabular usamos \t y para saltar a la siguiente linea \n
+
+                    <pre><code class="language-python">
+print("Python")
+print("\tPython")
+print("Lenguajes:\nPython,\nC,\nJavaScript")
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+Languages:
+Python
+C
+JavaScript
+                    </code></pre>
+
+                    <h3>Strip de espacios en blanco</h3>
+                    <p>Es bueno conocer estos métodos ya que al momento de comparar strings un espacio en blanco influye.</p>
+
+                    <p>'Python' != 'Python '</p>
+
+                    <p>para eliminar lo espacios en blanco a la derecha del string usamos el método "rstrip"</p>
+
+                    <pre><code class="language-python">
+favorite_language = 'python '
+print(favorite_language)
+# 'python '
+print(favorite_language.rstrip())
+# 'python'
+                    </code></pre>
+
+                    <p>Para eliminar los espacios en blanco del lado izquierdo usamos "lstrip"</p>
+
+                    <p>Para eliminar los espacios de ambos lados usamos "strip"</p>
+
+                    <pre><code class="language-python">
+favorite_language = ' python '
+print(favorite_language.rstrip())
+# ' python'
+print(favorite_language.lstrip())
+# 'python '
+print(favorite_language.strip())
+#'python'
+                    </code></pre>
+
+                    <h3>Sobre la inmutabilidad de los strings . . .</h3>
+                    
+                    <p>Obviamente los métodos están siendo aplicados al momento de imprimir el string, no lo modifican
+                        ya que los strings en Python son <b>inmutables</b>
+                    </p>
+
+                    <p>Si quisieramos de alguna forma "cambiar" el string debemos redefinirlo</p>
+
+                    <p>Lo que verdaderamente ocurre es que la variable inicial esta apuntando al espacio de memoria
+                        de el string generado por los métodos de este. Estamos reasignandolo.
+                    </p>
+
+                    <pre><code class="language-python">
+favorite_language = ' python '
+print(hex(id(favorite_language)))
+
+print(favorite_language.strip())
+print(hex(id(favorite_language)))
+
+favorite_language = favorite_language.strip()
+print(hex(id(favorite_language)))
+                    </code></pre>
+
+                    <h2>Números</h2>
+
+                    <h3>Integers (enteros)</h3>
+
+                    Sumar, restar, multiplicar y dividir es sencillo . . .
+
+                    <pre><code class="language-python">
+2 + 3
+# 5
+3 - 2
+# 1
+2 * 3
+# 6
+3 / 2
+# 1.5
+                    </code></pre>
+
+                    Potenciación
+
+                    <pre><code class="language-python">
+3 ** 2
+# 9
+3 ** 3
+# 27
+10 ** 6
+# 1000000
+                    </code></pre>
+
+                    Python soporta el orden de las operaciones así que puedes sumar y multiplicar en una misma expresión
+
+                    <pre><code class="language-python">
+2 + 3*4
+# 14
+(2 + 3) * 4
+# 20
+                    </code></pre>
+
+                    <h2>Floats (punto flotante)</h2>
+                    Python suele manejar números de punto flotante sin problema como cualquier otro lenguaje
+                    
+                    <pre><code class="language-python">
+0.1 + 0.1
+# 0.2
+0.2 + 0.2
+# 0.4
+2 * 0.1
+# 0.2
+2 * 0.2
+# 0.4
+                    </code></pre>
+
+                    Aunque al igual que otros lenguajes es posible que suceda esto:
+
+                    <pre><code class="language-python">
+0.2 + 0.1
+# 0.30000000000000004
+3 * 0.1
+# 0.30000000000000004
+round(0.2 + 0.1, 2)
+# 0.3
+                    </code></pre>
+
+                    <h3>Evitando errores al concatenar con strings</h3>
+                    
+                    <p>Si hacemos esto, tendremos un error:</p>
+
+                    <pre><code class="language-python">
+# archivo birthday.py
+age = 23
+message = "Happy " + age + "rd Birthday!"
+print(message)                        
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+Traceback (most recent call last):
+File "birthday.py", line 2, in <module>
+message = "Happy " + age + "rd Birthday!"
+u TypeError: Can't convert 'int' object to str implicitly
+                    </code></pre>
+
+                    <p>No podemos convertir un objeto numérico a string de forma implicita, debemos hacerlo de forma explicita con la función str()</p>
+
+                    <pre><code class="language-python">
+# archivo birthday.py
+age = 23
+message = "Happy " + str(age) + "rd Birthday!"
+print(message)
+# Happy 23rd Birthday!
+                    </code></pre>
+
+                    <h3>Comentando código</h3>
+
+                    <p>para comentarios simples de una linea ya vimos que es usando "#" 
+                    y para comentarios multilinea abrimos y cerramos con tres comillas dobles ' """ '</p>
+
+                    <pre><code class="language-python">
+# Esto es un comentario simple
+
+"""
+En cambio este es un comentario
+de varias
+líneas
+"""
+                    </code></pre>
+
+                    <h3>El Zen de Python</h3>
+
+                    <p>Importemos el paquete "this" para entender el "zen" de python</p>
+
+                    <pre><code class="language-python">
+import this
+                    </code></pre>
+
+                    <pre><code class="language-bash">
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly. # Bonito es mejor que feo
+Explicit is better than implicit. # Explicito es mejor que implicito
+Simple is better than complex. # Simple es mejor que complejo
+Complex is better than complicated. # Complejo es mejor que complicado
+Flat is better than nested. # Plano es mejor que anidado
+Sparse is better than dense. # Esparso es mejor que denso
+Readability counts. # La legibilidad cuenta
+Special cases arent special enough to break the rules. # Los casos especiales nunca son lo suficientemente especiales para romper las reglas
+Although practicality beats purity. # Aunque la practicalidad vence la puridad
+Errors should never pass silently. # Los errores nunca debe pasar silenciosamente
+Unless explicitly silenced. # Al menos que sea silenciados explicitamente (try catch)
+In the face of ambiguity, refuse the temptation to guess. # En cara a la ambiguedad, rechaza la tentacion de adivinar
+There should be one-- and preferably only one --obvious way to do it. # Debe haber uno y solamente un camino obvio para lograr algo
+Although that way may not be obvious at first unless youre Dutch. #Aunque puede que el camino no sea obvio al principio a menos que seas holandés
+Now is better than never. # Ahora es mejor que nunca
+Although never is often better than *right* now. # Aunque nunca suele ser mejor que ahora mismo
+If the implementation is hard to explain, its a bad idea. # Si la implementation es dificil de explicar entonces es una mala idea
+If the implementation is easy to explain, it may be a good idea. # Lo contrario a la línea anterior
+Namespaces are one honking great idea -- lets do more of those! # Los espacios de nombre son una buena idea, usémoslos mas !
+                    </code></pre>
+
+                    <h2>Listas</h2>
+
+                    <p>Básicamente las listas son un equivalente a los arreglos en otros lenguajes</p>
+
+                    <p>Pero no son arreglos (los elementos no están necesariamente en espacios contiguos de memoria)</p>
+
+                    <p>Son una colección de cosas en algún orden en particular</p>
+
+                    <pre><code class="language-python">
+marcas_autos = ['toyota','ford','chevrolet','mercedes']
+print(marcas_autos)
+                    </code></pre>
+
+                    Al imprimir directamente una lsita podemos ver la representación en string de esta
+
+                    <pre><code class="language-bash">
+['toyota','ford','chevrolet','mercedes']
+                    </code></pre>
+
+                    <h3>Accesando elementos de la lista</h3>
+
+                    <pre><code class="language-python">
+print(marcas_autos[0])
+# toyota
+print(marcas_autos[0].title())
+# Toyota
+                    </code></pre>
+
+                    <p>Python también permite accesar los elementos desde el ultimo de esta forma:</p>
+
+                    <pre><code class="language-python">
+print(marcas_autos[-1])
+# mercedes
+print(marcas_autos[-1].title())
+# Mercedes
+print(marcas_autos[-2].title())
+# Chevrolet
+                    </code></pre>
+                    
+                    <p>Entonces con esto ya sabemos como usar un elemento de una lista para otras cosas . . .</p>
+
+                    <pre><code class="language-python">
+print("En Venezuela los " + marcas_autos[0].title() + " son vendidos con sobreprecio")
+# En Venezuela los Toyota son vendidos con sobreprecio
+
+# tambien es posible pasar varios argumentos a print, en este caso 3 strings y el pondrá la separación
+print("En Venezuela los",marcas_autos[0].title(),"son vendidos con sobreprecio")
+# En Venezuela los Toyota son vendidos con sobreprecio
+                    </code></pre>
+
+                    <h3>Modificando elementos en una lista</h3>
+
+                    <p>Solo debemos cambiar el valor del elemento en cuestión</p>
+
+                    <pre><code class="language-python">
+marcas_autos = ['toyota','ford','chevrolet','mercedes']
+marcas_autos[0] = 'ferrari'
+print(marcas_autos)
+# ['ferrari','ford','chevrolet','mercedes']
+                    </code></pre>
+
+                    <h3>Añadiendo elementos a la lista</h3>
+
+                    <h4>Al final (append)</h4>
+
+                    <pre><code class="language-python">
+marcas_autos = ['toyota','ford','chevrolet','mercedes']
+marcas_autos.append('mitsubishi')
+# ['toyota','ford','chevrolet','mercedes','mitsubishi']
+                    </code></pre>
+
+                    <p>El método append es una buena forma de crear listas dinámicamente</p>
+
+                    <pre><code class="language-python">
+marcas_motos = []
+marcas_motos.append('honda')
+marcas_motos.append('yamaha')
+marcas_motos.append('suzuki')
+print(marcas_motos)
+# ['honda','yamaha','suzuki']
+                    </code></pre>
+
+                    <h4>Insertando elementos en cualquier parte de la lista</h4>
+
+                    <p>Usamos el método insert, con este ingresasa la posición del elemento</p>
+
+                    <pre><code class="language-python">
+marcas_motos = ['honda', 'yamaha', 'suzuki']
+marcas_motos.insert(0, 'ducati')
+print(marcas_motos)
+# marcas_motos = ['ducati','honda','yamaha','suzuki']
+                    </code></pre>
+
+                    <h3>Removiendo elementos de una lista</h3>
+
+                    <h4>Usando la sentencia "del"</h4>
+
+                    <pre><code class="language-python">
+marcas_motos = ['ducati','honda','yamaha','suzuki']
+del marcas_motos[1]
+# ['ducati','yamaha','suzuki']
+                    </code></pre>
+
+                    <h4>Usando el método pop</h4>
+
+                    <p>Este método hace referencia al "pop" que usualmente es asociado con las pilas
+                        por lo que sabemos que este nos dejará sacar de la lista el último elemento Y
+                        almacenarlo en una variable por si queremos hacer algo con el.
+                    </p>
+
+                    <pre><code class="language-python">
+marcas_motos = ['ducati','honda','yamaha','suzuki']
+marca_eliminada = marcas_motos.pop()
+print(marca_eliminada)
+# suzuki
+print(marcas_motos)
+# ['ducati','honda','yamaha']
+                    </code></pre>
+
+                    <p>Aunque es posible que necesitemos hacer algo con otro elemento que quisieramos fuera de la lista
+                        que no necesariamente es el último, pop puede ser invocado con un atributo indicando cual es la 
+                        posición que quisieramos tomar.
+                    </p>
+
+                    <pre><code class="language-python">
+marcas_motos = ['ducati','honda','yamaha','suzuki']
+marca_no_japonesa = marcas_motos.pop(0)
+print("La marca no japonesa es",marca_no_japonesa)
+# La marca no japonesa es ducati
+                    </code></pre>
+                    
+                    <h3>Removiendo un elemento por su valor</h3>
+
+                    <p>Podemos lograrlo con el método "remove"</p>
+
+                    <pre><code class="language-python">
+marcas_motos = ['ducati','honda','yamaha','suzuki']
+marcas_motos.remove('ducati')
+print(marcas_motos)
+# ['honda','yamaha','suzuki']
+                    </code></pre>
+
+                    <p>remove <b>solo elimina la primera ocurrencia de un item en una lista</b>, para borrar todas es necesario
+                        usar un loop.</p>
+                    <p>Este sería un pequeño ejemplo usando try / except y un loop infinito que acaba al generarse
+                        una excepción que luego ignoramos.
+                    </p>
+                    <p>Más adelante hablaremos de los loops y de las excepciones en python.</p>
+                    <pre><code class="language-python">
+try:
+    while True:
+        miLista.remove(valor_a_remover)
+except ValueError:
+    pass
+                    </code></pre>
+
+                    <h3>Ordenando una lista</h3>
+
+                    <h4>
+                        Ordenando una lista permanentemente con el método sort()
+                    </h4>
+
+                    <p>Sort ordena una lista permanentemente, esto quiere decir que no tendremos la lista "inicial", pues
+                        esta "muta" para convertirse a su versión ordenada.
+                    </p>
+
+                    <p>Técnicamente la lista no mutó sino que la variable que apunta a esta ahora apunta a una nueva
+                        versión de esta que está ordenada.
+                    </p>
+
+                    <pre><code class="language-python">
+autos = ['bmw', 'audi', 'toyota', 'subaru']
+autos.sort()
+print(autos)
+# ['audi', 'bmw', 'subaru', 'toyota']
+                    </code></pre>
+
+                    <p>Podemos ordenar esta lista a la inversa pasando el parámetro opcional "reverse" como "True"</p>
+
+                    <pre><code class="language-python">
+autos.sort(reverse=True)
+print(autos)
+# ['toyota', 'subaru', 'bmw', 'audi']
+                    </code></pre>
+
+                    <h4>Ordenando una lista temporalmente con el método sorted()</h4>
+
+                    <p>Sorted retorna una copia de nuestra lista pero ordenada, es buena idea usarla
+                        sino queremos cambiar permanentemente el orden de nuestra lista inicial.
+                    </p>
+
+                    <pre><code class="language-python">
+autos = ['bmw', 'audi', 'toyota', 'subaru']
+print(autos)
+# ['bmw', 'audi', 'toyota', 'subaru']
+
+print(autos.sorted())
+# ['audi', 'bmw', 'subaru', 'toyota']
+
+print(autos) # observemos que la lista original se mantiene intacta
+# ['bmw', 'audi', 'toyota', 'subaru']
+                    </code></pre>
+
+                    <h4>Obteniendo el reverso de una lista</h4>
+
+                    <p>Nótese que no ordena alfabéticamente en reversa los elementos sino que 
+                        devuelve la lista pasada en reversa.
+                    </p>
+
+                    <p>Reverse cambia el orden de la lista permanentemente</p>
+
+                    <pre><code class="language-python">
+autos = ['bmw', 'audi', 'toyota', 'subaru']
+autos.reverse()
+print(autos)
+# ['subaru', 'toyota', 'audi', 'bmw']
+                    </code></pre>
+
+                    <h3>Obteniendo el largo de una lista</h3>
+
+                    <p>Es tan simple como usar la función "len"</p>
+
+                    <pre><code class="language-python">
+autos = ['bmw', 'audi', 'toyota', 'subaru']
+len(autos)
+# 4
+                    </code></pre>
+
+                    <p>"len" es al igual que "str" una función "especial" que invoca los 
+                        "métodos mágicos" de un objeto, luego aprenderemos de ellos y como configurarlos
+                        para los objetos que nosotros creemos . . .
+                    </p>
+
+                    <h2>Loops !</h2>
+
+                    <p>Con los loops iniciamos con las estructuras de control de python</p>
+
+                    <p>Lo normal es que para pasar por cada elemento de una lista usemos "for" de esta forma</p>
+
+                    <pre><code class="language-python">
+# magos.py
+magos = ['David Blaine', 'David Copperfield','RRHH']
+for mago in magos:
+    print(mago)
+
+print("Tremendos magos !")
+
+# David Blaine
+# David Copperfield
+# RRHH
+# Tremendos magos !
+                    </code></pre>
+
+                    <p>Notese que python no usa llaves, donde inicia y donde termina un loop depende de la identación</p>
+                    
+                    <p>Digamos que es uan forma simple de evitar un código mal identado y mejorar la legibilidad.</p>
+
+                    <p>Si identas mal seguramente tendrás un error similar a este:</p>
+
+                    <pre><code class="language-bash">
+File "magos.py", line 3
+print(magician)
+^
+IndentationError: expected an indented block
+# o puede ser
+IndentationError: unexpected indent
+                    </code></pre>
+
+                    <h2>Haciendo listas numéricas</h2>
+
+                    <p>Hay muchas razones para guardar una lista de números y las listas son buenas para ello</p>
+
+                    <p>Podemos crear listas de estas usando la función range()</p>
+
+                    <pre><code class="language-bash">
+for valor in range(1,5):
+    print(valor)
+
+# 1
+# 2
+# 3
+# 4
+                    </code></pre>
+
+                    <p>Podemos ver que solo imprime hasta el 4 pues es normal, digamos que es típico
+                        de los lenguajes de programación (empezar por el 0 no por el 1)
+                    </p>
+
+                    <pre><code class="language-bash"></code>
+for valor in range(1,6):
+    print(valor)
+
+# 1
+# 2
+# 3
+# 4
+# 5
+                    </code></pre>
+
+                    <h3>Usando range para crear una lista de números</h3>
+
+                    <p>Simplemente usamos la función list para crear una lista y le pasamos como argumento una función range</p>
+
+                    <pre><code class="language-bash"></code>
+numeros = list(range(1,6))
+print(numeros)
+# [1,2,3,4,5]
+                    </code></pre>
+
+                    <h3>Estadísticas simples con una lista de números</h3>
+
+                    <p>Algunas funciones nos pueden ayudar</p>
+
+                    <ul>
+                        <li>min: el menor de los números en la lista</li>
+                        <li>max: el mayor de los números en la lista</li>
+                        <li>sum: la suma de todos los números en la lista</li>
+                    </ul>
+
+                    <pre><code class="language-python">
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+min(digits)
+# 0
+max(digits)
+# 9
+sum(digits)
+# 45
+                    </code></pre>
+
+                    <h3>Comprensiones de listas (list comprehensions)</h3>
+
+                    <p>Son una buena forma de generar listas en base a otra.</p>
+
+                    <p>Combinan un bucle for y la creación de nuevos elementos en una línea</p>
+
+                    <p>Ciertamente no son del todo aptas para los principiantes pero es mejor veras ahora
+                        que luego en el código de alguien mas.
+                    </p>
+
+                    <pre><code class="language-python">
+valores_al_cuadrado = [value**2 for value in range(1, 11)]
+print(valores_al_cuadrado)
+# [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+                    </code></pre>
+
+                    <h3>Trabajando con parte de una lista (slicing)</h3>
+
+                    <p>Para hacer un "slice" o porción de una lista debemos especificar los indices
+                        del primer y ultimo elemento con el que deseamos trabajar. Python se detiene
+                        un índice antes del último número que especificas.
+                    </p>
+
+                    <pre><code class="language-python">
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:3])
+# ['charles', 'martina', 'michael']
+print(players[:3])
+# ['charles', 'martina', 'michael']
+print(players[2:])
+['michael', 'florence', 'eli']
+                    </code></pre>
+
+                    <h3>Copiando una lista</h3>
+
+                    <p>A veces es necesario tener una copia de una lista para preservar 
+                        la original. Asignando la lista acopiar a una variable nueva solo
+                        hace que esta apunte al espacio de memoria de la lista a copiar
+                        por lo que si modificamos nuestra nueva variable también modificamos
+                        la lista original.
+                    </p>
+
+                    <pre><code class="language-python">
+lista = ['hola','como','estas']
+hex(id(lista))
+# '0x7fdc6ab26148'
+nueva_lista = lista
+hex(id(nueva_lista))
+# '0x7fdc6ab26148'
+                    </code></pre>
+
+                    <p>Afortunadamente podemos hacer una nueva lista con un simple truco:</p>
+                    <p>Hacemos un slice sin índice inicial y final</p>
+
+                    <pre><code class="language-python">
+lista = ['hola','como','estas']
+hex(id(lista))
+# '0x7fdc6aba1d08'
+nueva_lista = lista[:]
+hex(id(nueva_lista))
+# '0x7fdc6aad0248'
+                    </code></pre>
+                    
+                    <h2>Tuples (Tuplas)</h2>
+
+                    <p>A veces necesitamos listas que no puedan ser modificadas</p>
+                    <p>Las tuplas son básciamente listas que no pueden ser modificadas</p>
+                    <p>Se definen igual que una lista solo que en vez de corchetes usamos
+                        paréntesis.
+                    </p>
+                    
+                    <pre><code class="language-python">
+dimensiones = (200, 50)
+print(dimensiones[0])
+# 200
+print(dimensiones[1])
+# 50
+                    </code></pre>
+
+                    <h2>if - else</h2>
+
+                    <p>Como ya sabemos programar muchas veces consiste en la comparación y verificación
+                        de condiciones para tomar un curso de acción.
+                    </p>
+
+                    <p>Veamos el siguiente ejemplo para entender el uso del if /else en python</p>
+
+                    <pre><code class="language-python">
+carros = ['audi', 'bmw', 'subaru', 'toyota']
+    for carro in carros:
+        if carro == 'bmw':
+            print(car.upper())
+        else:
+            print(car.title())
+                    </code></pre>
+
+                    <h3>Verificar si un valor está en una lista</h3>
+
+                    <pre><code class="language-python">
+carros = ['audi', 'bmw', 'subaru', 'toyota']
+
+if 'audi' in carros:
+    print("Audi está en la lista")
+                    </code></pre>
+
+                    <h3>Expresiones booleanas</h3>
+
+                    <p>Ya conocemos las expresiones booleanas, básicamente usados
+                        para mantener un registro de algunas condiciones o Verificar
+                        si alguna de estas se cumple.
+                    </p>
+
+                    <p>Aquí un par de ejemplos de como asignar booleanos a variables</p>
+
+                    <pre><code class="language-python">
+juego_activo = True
+puede_editar = False
+                    </code></pre>
+
+                    <h3>Verificar si un valor no está en una lista</h3>
+
+                    <pre><code class="language-python">
+usuarios_baneados = ['andrew', 'carolina', 'david']    
+usuario_verificar = 'leonel'
+
+if usuario_verificar not in usuarios_baneados:
+    print("El usuario no está baneado")
+                    </code></pre>
+
+                    <h3>if - elif - else</h3>
+                    
+                    <p>Muchas veces es necesario examinar mas de 2 posibles situaciones
+                        y para esos casos existe if - elif - else.
+                    </p>
+
+                    <p>Veamos un ejemplo en donde la edad de una persona afecta el precio
+                        de algún servicio:</p>
+
+                    <pre><code class="language-python">
+edad = 12
+
+if edad &lt 4:
+    print("El costo es de 0$")
+elif edad &lt 18:
+    print("El costo es de 25$")
+elif edad &lt 60:
+    print("El costo es de 40$")
+else:
+    print("El costo es de 20$")
+                    </code></pre>
+
+                    <h3>Verficar si una lista está vacía</h3>
+
+                    <p>Simplemente hacemos un if y la lista para verificar si contiene algo.</p>
+                    
+                    <pre><code class="language-python">
+toppings_pizza = []
+
+if toppings_pizza:
+    print("La pizza contiene:")
+
+    for topping in toppings_pizza:
+        print("->",topping)
+
+else:
+    print("No hay toppings para la pizza")
+                    </code></pre>
+
+
+                </div>
+                <!-- flex large -->
+
+            </div>
+
+        </div>
+
+        <script src="prism.js"></script>
+    </body>
+</html>
